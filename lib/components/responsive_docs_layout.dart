@@ -46,6 +46,15 @@ class ResponsiveDocsLayout extends PageLayoutBase {
       yield meta(name: 'description', content: description);
     }
 
+    yield link(href: 'https://fonts.googleapis.com', rel: 'preconnect');
+    yield link(href: 'https://fonts.gstatic.com', rel: 'preconnect', attributes: {'crossorigin': ''});
+    yield link(
+      href:
+          'https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500;600&display=swap',
+      rel: 'stylesheet',
+    );
+    yield link(href: '/styles.css', rel: 'stylesheet');
+
     yield Style(styles: _styles);
   }
 

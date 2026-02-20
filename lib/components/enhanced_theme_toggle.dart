@@ -189,75 +189,82 @@ class EnhancedThemeToggleState extends State<EnhancedThemeToggle> {
     };
 
     return div(
-      classes: 'enhanced-theme-toggle-container',
+      classes: 'relative inline-block',
       styles: !kIsWeb ? Styles(visibility: Visibility.hidden) : null,
       [
         div(
-          classes:
-              'theme-dropdown ${_isDropdownOpen ? 'open' : ''} ${ThemeMode.auto == _currentMode
-                  ? 'auto'
-                  : ThemeMode.dark == _currentMode
-                  ? 'dark'
-                  : 'light'}',
+          classes: 'relative inline-block min-w-[90px] sm:min-w-[100px]',
           [
             // Current selection display
             div(
-              classes: 'dropdown-trigger',
+              classes:
+                  'flex justify-between items-center px-2 sm:px-3 py-1.5 sm:py-2 border border-slate-200 dark:border-slate-800 rounded-lg cursor-pointer transition-all text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-900 shadow-sm hover:bg-slate-50 dark:hover:bg-slate-800 text-xs sm:text-sm font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500/50 group',
               events: events(
                 onClick: () => _toggleDropdown(),
               ),
               [
-                currentIcon,
-                span(classes: 'theme-label', [Component.text(currentLabel)]),
-                ChevronDownIcon(size: 14),
+                div(classes: 'flex items-center gap-1.5 sm:gap-2', [
+                  currentIcon,
+                  span(classes: 'transition-colors hidden sm:inline-block', [Component.text(currentLabel)]),
+                ]),
+                div(classes: 'transition-transform duration-200 ${_isDropdownOpen ? 'rotate-180' : ''}', [
+                  const ChevronDownIcon(size: 14),
+                ]),
               ],
             ),
             // Dropdown options (only shown when open)
             if (_isDropdownOpen) ...[
               // Backdrop blur
               div(
-                classes: 'dropdown-backdrop',
+                classes: 'fixed inset-0 z-[999] bg-black/5',
                 events: events(
                   onClick: () => _closeDropdown(),
                 ),
                 [],
               ),
               // Options container
-              div(classes: 'dropdown-options', [
-                // Auto option
-                div(
-                  classes: 'dropdown-option ${ThemeMode.auto == _currentMode ? 'active' : ''}',
-                  events: events(
-                    onClick: () => _selectTheme(ThemeMode.auto),
+              div(
+                classes:
+                    'absolute top-full left-0 right-0 z-[1000] mt-1 p-1 sm:p-1.5 border border-slate-200 dark:border-slate-800 rounded-lg bg-white dark:bg-slate-900 shadow-lg flex flex-col gap-0.5',
+                [
+                  // Auto option
+                  div(
+                    classes:
+                        'flex items-center gap-2 px-2 py-1.5 sm:py-2 rounded-md cursor-pointer transition-colors text-slate-600 dark:text-slate-400 text-xs sm:text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white ${ThemeMode.auto == _currentMode ? 'bg-purple-50 dark:bg-purple-900/20 text-purple-700 dark:text-purple-300 font-semibold' : ''}',
+                    events: events(
+                      onClick: () => _selectTheme(ThemeMode.auto),
+                    ),
+                    [
+                      const MonitorIcon(size: 16),
+                      span(classes: 'hidden sm:inline-block', [Component.text('Auto')]),
+                    ],
                   ),
-                  [
-                    MonitorIcon(size: 16),
-                    span(classes: 'theme-label', [Component.text('Auto')]),
-                  ],
-                ),
-                // Dark option
-                div(
-                  classes: 'dropdown-option ${ThemeMode.dark == _currentMode ? 'active' : ''}',
-                  events: events(
-                    onClick: () => _selectTheme(ThemeMode.dark),
+                  // Dark option
+                  div(
+                    classes:
+                        'flex items-center gap-2 px-2 py-1.5 sm:py-2 rounded-md cursor-pointer transition-colors text-slate-600 dark:text-slate-400 text-xs sm:text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white ${ThemeMode.dark == _currentMode ? 'bg-purple-50 dark:bg-purple-900/20 text-purple-700 dark:text-purple-300 font-semibold' : ''}',
+                    events: events(
+                      onClick: () => _selectTheme(ThemeMode.dark),
+                    ),
+                    [
+                      const MoonIcon(size: 16),
+                      span(classes: 'hidden sm:inline-block', [Component.text('Dark')]),
+                    ],
                   ),
-                  [
-                    MoonIcon(size: 16),
-                    span(classes: 'theme-label', [Component.text('Dark')]),
-                  ],
-                ),
-                // Light option
-                div(
-                  classes: 'dropdown-option ${ThemeMode.light == _currentMode ? 'active' : ''}',
-                  events: events(
-                    onClick: () => _selectTheme(ThemeMode.light),
+                  // Light option
+                  div(
+                    classes:
+                        'flex items-center gap-2 px-2 py-1.5 sm:py-2 rounded-md cursor-pointer transition-colors text-slate-600 dark:text-slate-400 text-xs sm:text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white ${ThemeMode.light == _currentMode ? 'bg-purple-50 dark:bg-purple-900/20 text-purple-700 dark:text-purple-300 font-semibold' : ''}',
+                    events: events(
+                      onClick: () => _selectTheme(ThemeMode.light),
+                    ),
+                    [
+                      const SunIcon(size: 16),
+                      span(classes: 'hidden sm:inline-block', [Component.text('Light')]),
+                    ],
                   ),
-                  [
-                    SunIcon(size: 16),
-                    span(classes: 'theme-label', [Component.text('Light')]),
-                  ],
-                ),
-              ]),
+                ],
+              ),
             ],
           ],
         ),
@@ -287,149 +294,7 @@ class EnhancedThemeToggleState extends State<EnhancedThemeToggle> {
   }
 
   @css
-  static List<StyleRule> get styles => [
-    css('.enhanced-theme-toggle-container', [
-      css('&').styles(
-        display: Display.inlineBlock,
-        raw: {'position': 'relative'},
-      ),
-    ]),
-    css('.theme-dropdown', [
-      css('&').styles(
-        raw: {'position': 'relative', 'display': 'inline-block', 'min-width': '120px'},
-      ),
-    ]),
-    css('.dropdown-trigger', [
-      css('&').styles(
-        display: Display.flex,
-        padding: Padding.symmetric(horizontal: 12.px, vertical: 8.px),
-        border: Border.all(color: Color('hsl(var(--border))'), width: 1.px, style: BorderStyle.solid),
-        radius: BorderRadius.circular(8.px),
-        cursor: Cursor.pointer,
-        transition: Transition('all', duration: 150.ms),
-        justifyContent: JustifyContent.spaceBetween,
-        alignItems: AlignItems.center,
-        color: Color('hsl(var(--foreground))'),
-        fontSize: 0.875.rem,
-        fontWeight: FontWeight.w500,
-        backgroundColor: Color('hsl(var(--background))'),
-        raw: {'box-shadow': '0 1px 3px hsl(var(--foreground) / 0.1)', 'gap': '8px'},
-      ),
-      css('&:hover').styles(
-        backgroundColor: Color('hsl(var(--accent) / 0.05)'),
-        raw: {'box-shadow': '0 2px 6px hsl(var(--foreground) / 0.15)'},
-      ),
-      css('&:focus-visible').styles(
-        raw: {'outline': '2px solid hsl(var(--ring))'},
-      ),
-    ]),
-    css('.dropdown-backdrop', [
-      css('&').styles(
-        raw: {
-          'position': 'fixed',
-          'top': '0',
-          'left': '0',
-          'right': '0',
-          'bottom': '0',
-          'z-index': '999',
-          'background-color': 'rgba(0, 0, 0, 0.1)',
-        },
-      ),
-    ]),
-    css('.dropdown-options', [
-      css('&').styles(
-        padding: Padding.all(2.px),
-        border: Border.all(color: Color('hsl(var(--border))'), width: 1.px, style: BorderStyle.solid),
-        radius: BorderRadius.circular(8.px),
-        backgroundColor: Color('hsl(var(--background))'),
-        raw: {
-          'position': 'absolute',
-          'top': '100%',
-          'left': '0',
-          'right': '0',
-          'z-index': '1000',
-          'margin-top': '4px',
-          'box-shadow': '0 4px 12px hsl(var(--foreground) / 0.15)',
-          'gap': '2px',
-        },
-      ),
-    ]),
-    css('.dropdown-option', [
-      css('&').styles(
-        display: Display.flex,
-        padding: Padding.symmetric(horizontal: 10.px, vertical: 8.px),
-        radius: BorderRadius.circular(6.px),
-        cursor: Cursor.pointer,
-        transition: Transition('all', duration: 150.ms),
-        alignItems: AlignItems.center,
-        color: Color('hsl(var(--foreground) / 0.8)'),
-        fontSize: 0.875.rem,
-        fontWeight: FontWeight.w500,
-        backgroundColor: Colors.transparent,
-        raw: {'gap': '8px'},
-      ),
-      css('&:hover').styles(
-        color: Color('hsl(var(--foreground))'),
-        backgroundColor: Color('hsl(var(--accent) / 0.1)'),
-      ),
-      css('&.active').styles(
-        color: Color('hsl(var(--foreground))'),
-        fontWeight: FontWeight.w600,
-        backgroundColor: Color('hsl(var(--accent) / 0.2)'),
-      ),
-      css('&:focus-visible').styles(
-        raw: {'outline': '2px solid hsl(var(--ring))'},
-      ),
-    ]),
-    css('.theme-label', [
-      css('&').styles(
-        transition: Transition('color', duration: 150.ms),
-        fontSize: 0.8125.rem,
-        fontWeight: FontWeight.w500,
-      ),
-    ]),
-    // Chevron rotation animation
-    css('.dropdown-trigger svg:last-child', [
-      css('&').styles(
-        transition: Transition('transform', duration: 200.ms),
-        raw: {'margin-left': 'auto'},
-      ),
-    ]),
-    css('.theme-dropdown.open .dropdown-trigger svg:last-child', [
-      css('&').styles(
-        raw: {'transform': 'rotate(180deg)'},
-      ),
-    ]),
-    // Icon animations
-    css('.dropdown-option svg, .dropdown-trigger svg:not(:last-child)', [
-      css('&').styles(
-        transition: Transition('transform', duration: 200.ms),
-      ),
-      css('.dropdown-option:hover &').styles(
-        raw: {'transform': 'scale(1.1)'},
-      ),
-    ]),
-    // Responsive design
-    css('@media (max-width: 640px)', [
-      css('.dropdown-trigger', [
-        css('&').styles(
-          padding: Padding.symmetric(horizontal: 10.px, vertical: 6.px),
-          fontSize: 0.8125.rem,
-        ),
-      ]),
-      css('.dropdown-option', [
-        css('&').styles(
-          padding: Padding.symmetric(horizontal: 8.px, vertical: 6.px),
-          fontSize: 0.8125.rem,
-        ),
-      ]),
-      css('.theme-label', [
-        css('&').styles(
-          display: Display.none,
-        ),
-      ]),
-    ]),
-  ];
+  static List<StyleRule> get styles => [];
 
   static const String _themeStorageKey = 'enhanced_theme_toggle_cache';
   static const Duration _cacheDuration = Duration(hours: 24);

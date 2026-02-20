@@ -1,45 +1,19 @@
 ---
 title: "Formix — Elite Form Engine for Flutter"
 description: "Formix is a type-safe, ultra-reactive form engine for Flutter, powered by Riverpod. Lightning-fast performance, zero boilerplate, effortless state management."
+layout: home
 ---
 
-# Formix 🚀
+<Hero title="Elite Form Engine" subtitle="for Flutter" command="flutter pub add formix">
+Build type-safe, ultra-reactive forms with Riverpod. Lightning-fast performance, zero boilerplate, effortless state management.
+</Hero>
 
-**An elite, type-safe, and ultra-reactive form engine for Flutter.**
-
-Powered by [Riverpod](https://riverpod.dev), Formix delivers lightning-fast performance, zero boilerplate, and effortless state management. Whether it's a simple login screen or a complex multi-step wizard, Formix scales with you.
-
-[![pub.dev](https://img.shields.io/pub/v/formix.svg)]({{links.pub}})
-[![License](https://img.shields.io/badge/license-MIT-purple.svg)]({{links.github}}/blob/main/LICENSE)
-[![Tests](https://img.shields.io/badge/tests-passing-brightgreen.svg)]({{links.github}}/actions)
-
----
-
-## Why Formix?
-
-<Info>
-Formix was built to solve a core Flutter problem: managing complex form state without drowning in boilerplate. With a Riverpod-first design, your forms become first-class reactive citizens in your app.
-</Info>
-
-### ✅ Zero Boilerplate
-
-Define your form fields via `FormixFieldID` + `Formix` widget. Formix handles registration, validation, and state automatically.
-
-### ⚡ Lightning-Fast Reactive Updates
-
-Built on Riverpod's fine-grained reactivity. Fields only rebuild when their own value or validation changes — not the whole form.
-
-### 🔒 100% Type-Safe
-
-`FormixFieldID<T>` carries the Dart type at compile time. Every `getValue`, `setValue`, and validator is checked by the type system.
-
-### 🧩 Headless & Composable
-
-`FormixRawFormField<T>` lets you wrap *any* widget — pickers, selectors, sliders — in the Formix ecosystem with a single builder function.
-
-### 📦 Batteries Included
-
-Undo/redo history, state persistence, form analytics, i18n validation messages, DevTools integration, Navigation Guard, and more — all built in.
+<FeatureGrid>
+  <FeatureCard title="⚡️ Zero Boilerplate" desc="Define your form fields via FormixFieldID + Formix widget. Formix handles registration, validation, and state automatically." />
+  <FeatureCard title="🚀 Lightning Fast" desc="Built on Riverpod's fine-grained reactivity. Fields only rebuild when their own value or validation changes." />
+  <FeatureCard title="🛡️ 100% Type-Safe" desc="FormixFieldID carries the Dart type at compile time. Every getValue or validator is checked by the type system." />
+  <FeatureCard title="🧩 Composable" desc="FormixRawFormField lets you wrap any widget — pickers, selectors, sliders — in the Formix ecosystem effortlessly." />
+</FeatureGrid>
 
 ---
 

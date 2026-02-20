@@ -23,6 +23,9 @@ import 'components/custom_image.dart';
 import 'components/responsive_docs_layout.dart';
 import 'components/enhanced_theme_toggle.dart';
 import 'components/cached_github_button.dart';
+import 'components/hero.dart';
+import 'components/feature_grid.dart';
+import 'components/home_layout.dart';
 import 'page_extensions.dart';
 
 // This file is generated automatically by Jaspr, do not remove or edit.
@@ -83,24 +86,14 @@ void main() {
         CustomImage(zoom: true),
         // Adds support for tabbed content blocks.
         Tabs(),
+        // Visual Nitro-inspired UI components
+        Hero(),
+        FeatureGrid(),
       ],
       layouts: [
-        // Enhanced responsive layout for documentation sites.
+        // Enhanced responsive layout for documentation sites. (Default layout)
         ResponsiveDocsLayout(
-          header: CustomHeader(
-            title: 'Formix',
-            subtitle: "Elite Form Engine for Flutter",
-            logo: '/images/formix_logo.svg',
-            includeSearch: true,
-            navigationItems: [
-              // Enables switching between light and dark mode.
-              EnhancedThemeToggle(),
-              // Shows github stats.
-              CachedGitHubButton(
-                repo: 'shreemanarjunsahu/formix',
-              ),
-            ],
-          ),
+          header: _buildHeader(),
           sidebar: Sidebar(
             groups: [
               SidebarGroup(
@@ -139,64 +132,12 @@ void main() {
               ),
             ],
           ),
-          footer: Builder(
-            builder: (context) {
-              return div(
-                styles: Styles(
-                  position: Position.fixed(bottom: 0.px, right: 24.px),
-                  padding: Spacing.only(bottom: 24.px),
-                  backgroundColor: Color('hsl(var(--background))'),
-                  raw: {
-                    'transition': 'all 0.3s ease-in-out',
-                  },
-                ),
-                [
-                  div(
-                    styles: Styles(
-                      display: Display.flex,
-                      flexDirection: FlexDirection.column,
-                      alignItems: AlignItems.end,
-                      gap: Gap(row: 8.px),
-                    ),
-                    [
-                      div(
-                        styles: Styles(
-                          display: Display.flex,
-                          padding: Spacing.symmetric(horizontal: 8.px, vertical: 4.px),
-                          radius: BorderRadius.all(Radius.circular(12.px)),
-                          alignItems: AlignItems.center,
-                          gap: Gap(row: 6.px),
-                          backgroundColor: Color('hsl(var(--primary) / 0.1)'),
-                        ),
-                        [
-                          span(
-                            styles: Styles(
-                              color: Color('hsl(var(--primary))'),
-                              fontSize: 0.6875.rem,
-                              fontWeight: FontWeight.w600,
-                              letterSpacing: 0.025.em,
-                            ),
-                            [Component.text('v1.0.0')],
-                          ),
-                          div(
-                            styles: Styles(
-                              width: 6.px,
-                              height: 6.px,
-                              radius: BorderRadius.circular(50.percent),
-                              backgroundColor: Color('hsl(var(--primary))'),
-                            ),
-                            [],
-                          ),
-                        ],
-                      ),
-                      // Jaspr badge is inside jaspr_content or needs an implementation.
-                      // For now, we omit it or implement standard jaspr badge
-                    ],
-                  ),
-                ],
-              );
-            },
-          ),
+          footer: _buildFooter(),
+        ),
+        // Home layout for the landing page without the docs sidebar.
+        HomeLayout(
+          header: _buildHeader(),
+          footer: _buildFooter(),
         ),
       ],
       theme: ContentTheme(
@@ -211,5 +152,79 @@ void main() {
         ],
       ),
     ),
+  );
+}
+
+Component _buildHeader() {
+  return CustomHeader(
+    title: 'Formix',
+    subtitle: "Elite Form Engine for Flutter",
+    logo: '/images/formix_logo.svg',
+    includeSearch: true,
+    navigationItems: [
+      EnhancedThemeToggle(),
+      CachedGitHubButton(repo: 'shreemanarjun/formix'),
+    ],
+  );
+}
+
+Component _buildFooter() {
+  return Builder(
+    builder: (context) {
+      return div(
+        styles: Styles(
+          position: Position.fixed(bottom: 0.px, right: 24.px),
+          padding: Spacing.only(bottom: 24.px),
+          backgroundColor: Color('hsl(var(--background))'),
+          raw: {
+            'transition': 'all 0.3s ease-in-out',
+            'z-index': '999',
+          },
+        ),
+        [
+          div(
+            styles: Styles(
+              display: Display.flex,
+              flexDirection: FlexDirection.column,
+              alignItems: AlignItems.end,
+              gap: Gap(row: 8.px),
+            ),
+            [
+              div(
+                styles: Styles(
+                  display: Display.flex,
+                  padding: Spacing.symmetric(horizontal: 8.px, vertical: 4.px),
+                  radius: BorderRadius.all(Radius.circular(12.px)),
+                  alignItems: AlignItems.center,
+                  gap: Gap(row: 6.px),
+                  backgroundColor: Color('hsl(var(--primary) / 0.1)'),
+                  raw: {'backdrop-filter': 'blur(4px)'},
+                ),
+                [
+                  span(
+                    styles: Styles(
+                      color: Color('hsl(var(--primary))'),
+                      fontSize: 0.6875.rem,
+                      fontWeight: FontWeight.w600,
+                      letterSpacing: 0.025.em,
+                    ),
+                    [Component.text('v1.0.0')],
+                  ),
+                  div(
+                    styles: Styles(
+                      width: 6.px,
+                      height: 6.px,
+                      radius: BorderRadius.circular(50.percent),
+                      backgroundColor: Color('hsl(var(--primary))'),
+                    ),
+                    [],
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ],
+      );
+    },
   );
 }

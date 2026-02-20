@@ -30,65 +30,7 @@ final class CachedGitHubButton extends StatefulComponent {
   State<CachedGitHubButton> createState() => _CachedGitHubButtonState();
 
   @css
-  static List<StyleRule> get styles => [
-    css('.github-button', [
-      css('&').styles(
-        display: Display.flex,
-        padding: Padding.symmetric(horizontal: 0.7.rem, vertical: 0.4.rem),
-        radius: BorderRadius.circular(8.px),
-        alignItems: AlignItems.center,
-        gap: Gap(column: .5.rem),
-        fontSize: 0.7.rem,
-        textDecoration: TextDecoration.none,
-        lineHeight: 1.2.em,
-      ),
-      css('&:hover').styles(backgroundColor: Color('color-mix(in srgb, currentColor 5%, transparent)')),
-      css('& *').styles(
-        transition: Transition('opacity', duration: 200.ms, curve: Curve.easeInOut),
-      ),
-      css('&:hover *').styles(raw: {'opacity': '1 !important'}),
-      css('.github-icon').styles(width: 1.2.rem),
-      css('.github-info', [
-        css('&').styles(display: Display.flex, flexDirection: FlexDirection.column),
-        css('& > span:first-child').styles(
-          margin: Margin.only(bottom: 2.px),
-          opacity: 0.9,
-          fontFamily: FontFamily.list([FontFamilies.monospace]),
-        ),
-        css('& > span:last-child', [
-          css('&').styles(
-            display: Display.flex,
-            opacity: 0.7,
-            alignItems: AlignItems.center,
-            gap: Gap(column: .3.em),
-            fontSize: 0.9.em,
-            fontWeight: FontWeight.w800,
-          ),
-          css('span').styles(fontWeight: FontWeight.w500),
-        ]),
-      ]),
-    ]),
-    // Responsive design for mobile
-    css('@media (max-width: 640px)', [
-      css('.github-button', [
-        css('&').styles(
-          padding: Padding.symmetric(horizontal: 2.rem, vertical: 0.3.rem),
-          gap: Gap(column: .3.rem),
-          fontSize: 0.65.rem,
-        ),
-        css('.github-icon').styles(width: 1.0.rem),
-        css('.github-info', [
-          css('& > span:first-child').styles(
-            fontSize: 0.8.em,
-          ),
-          css('& > span:last-child').styles(
-            gap: Gap(column: .2.em),
-            fontSize: 0.8.em,
-          ),
-        ]),
-      ]),
-    ]),
-  ];
+  static List<StyleRule> get styles => [];
 }
 
 class _CachedGitHubButtonState extends State<CachedGitHubButton> with PreloadStateMixin<CachedGitHubButton> {
@@ -143,19 +85,29 @@ class _CachedGitHubButtonState extends State<CachedGitHubButton> with PreloadSta
 
   @override
   Component build(BuildContext _) {
-    return a(href: 'https://github.com/${component.repo}', target: Target.blank, classes: 'github-button not-content', [
-      div(classes: 'github-icon', const [_GitHubIcon()]),
-      div(classes: 'github-info', [
-        span([Component.text(component.repo)]),
-        span([
-          Component.text('★'),
-          span(styles: !loaded ? const Styles(opacity: 0) : null, [Component.text('${_stars ?? 9999}')]),
-          span([]),
-          Component.text('⑂'),
-          span(styles: !loaded ? const Styles(opacity: 0) : null, [Component.text('${_forks ?? 99}')]),
+    return a(
+      href: 'https://github.com/${component.repo}',
+      target: Target.blank,
+      classes:
+          'flex items-center gap-2 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors shadow-sm no-underline group',
+      [
+        div(classes: 'min-w-[16px] w-[18px] opacity-80 group-hover:opacity-100 transition-opacity', const [
+          _GitHubIcon(),
         ]),
-      ]),
-    ]);
+        div(classes: 'flex flex-col opacity-90 group-hover:opacity-100 transition-opacity', [
+          span(classes: 'text-xs font-mono font-medium leading-none mb-1 hidden sm:block', [
+            Component.text(component.repo),
+          ]),
+          span(classes: 'flex items-center gap-1.5 text-[0.7rem] font-bold leading-none', [
+            span(classes: 'text-amber-500', [Component.text('★')]),
+            span(classes: !loaded ? 'opacity-0' : '', [Component.text('${_stars ?? 9999}')]),
+            span(classes: 'text-slate-400 dark:text-slate-500 mx-0.5', [Component.text('•')]),
+            span(classes: 'text-slate-500', [Component.text('⑂')]),
+            span(classes: !loaded ? 'opacity-0' : '', [Component.text('${_forks ?? 99}')]),
+          ]),
+        ]),
+      ],
+    );
   }
 }
 
