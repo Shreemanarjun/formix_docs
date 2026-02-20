@@ -1,7 +1,6 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/server.dart';
 import 'package:jaspr_content/jaspr_content.dart';
-import 'package:jaspr_content/theme.dart';
 
 class HomeLayout extends PageLayoutBase {
   const HomeLayout({this.header, this.footer});
@@ -42,8 +41,8 @@ class HomeLayout extends PageLayoutBase {
   static List<StyleRule> get _styles => [
     css('.home-layout', [
       css('&').styles(
-        minHeight: 100.vh,
         display: Display.flex,
+        minHeight: 100.vh,
         flexDirection: FlexDirection.column,
         backgroundColor: Color('hsl(var(--background))'),
         raw: {
@@ -52,18 +51,18 @@ class HomeLayout extends PageLayoutBase {
       ),
       css('main', [
         css('&').styles(
-          flex: Flex(grow: 1, shrink: 0, basis: Unit.auto),
           display: Display.flex,
+          padding: Padding.only(top: 4.rem),
           flexDirection: FlexDirection.column,
-          padding: Padding.only(top: 4.rem), // Account for fixed header
+          flex: Flex(grow: 1, shrink: 0, basis: Unit.auto), // Account for fixed header
         ),
       ]),
       css('.home-content', [
         css('&').styles(
           width: 100.percent,
           maxWidth: 1200.px,
-          margin: Margin.symmetric(horizontal: Unit.auto),
           padding: Padding.symmetric(horizontal: 1.5.rem),
+          margin: Margin.symmetric(horizontal: Unit.auto),
         ),
       ]),
     ]),
