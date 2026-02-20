@@ -5,17 +5,25 @@
 // Generated with jaspr_builder
 
 import 'package:jaspr/server.dart';
+import 'package:formix_docs/components/badge.dart' as _badge;
+import 'package:formix_docs/components/cached_github_button.dart'
+    as _cached_github_button;
+import 'package:formix_docs/components/card.dart' as _card;
 import 'package:formix_docs/components/code_block.dart' as _code_block;
+import 'package:formix_docs/components/custom_image.dart' as _custom_image;
+import 'package:formix_docs/components/enhanced_theme_toggle.dart'
+    as _enhanced_theme_toggle;
+import 'package:formix_docs/components/steps.dart' as _steps;
+import 'package:formix_docs/components/tip.dart' as _tip;
 import 'package:jaspr_content/components/_internal/code_block_copy_button.dart'
     as _code_block_copy_button;
+import 'package:jaspr_content/components/_internal/tab_bar.dart' as _tab_bar;
 import 'package:jaspr_content/components/_internal/zoomable_image.dart'
     as _zoomable_image;
 import 'package:jaspr_content/components/callout.dart' as _callout;
-import 'package:jaspr_content/components/github_button.dart' as _github_button;
-import 'package:jaspr_content/components/image.dart' as _image;
 import 'package:jaspr_content/components/sidebar_toggle_button.dart'
     as _sidebar_toggle_button;
-import 'package:jaspr_content/components/theme_toggle.dart' as _theme_toggle;
+import 'package:jaspr_content/components/tabs.dart' as _tabs;
 
 /// Default [ServerOptions] for use with your Jaspr project.
 ///
@@ -36,39 +44,55 @@ import 'package:jaspr_content/components/theme_toggle.dart' as _theme_toggle;
 ServerOptions get defaultServerOptions => ServerOptions(
   clientId: 'main.client.dart.js',
   clients: {
+    _cached_github_button.CachedGitHubButton:
+        ClientTarget<_cached_github_button.CachedGitHubButton>(
+          'cached_github_button',
+          params: __cached_github_buttonCachedGitHubButton,
+        ),
+    _enhanced_theme_toggle.EnhancedThemeToggle:
+        ClientTarget<_enhanced_theme_toggle.EnhancedThemeToggle>(
+          'enhanced_theme_toggle',
+        ),
     _code_block_copy_button.CodeBlockCopyButton:
         ClientTarget<_code_block_copy_button.CodeBlockCopyButton>(
           'jaspr_content:code_block_copy_button',
         ),
+    _tab_bar.TabBar: ClientTarget<_tab_bar.TabBar>(
+      'jaspr_content:tab_bar',
+      params: __tab_barTabBar,
+    ),
     _zoomable_image.ZoomableImage: ClientTarget<_zoomable_image.ZoomableImage>(
       'jaspr_content:zoomable_image',
       params: __zoomable_imageZoomableImage,
-    ),
-    _github_button.GitHubButton: ClientTarget<_github_button.GitHubButton>(
-      'jaspr_content:github_button',
-      params: __github_buttonGitHubButton,
     ),
     _sidebar_toggle_button.SidebarToggleButton:
         ClientTarget<_sidebar_toggle_button.SidebarToggleButton>(
           'jaspr_content:sidebar_toggle_button',
         ),
-    _theme_toggle.ThemeToggle: ClientTarget<_theme_toggle.ThemeToggle>(
-      'jaspr_content:theme_toggle',
-    ),
   },
   styles: () => [
+    ..._badge.Badge.styles,
+    ..._cached_github_button.CachedGitHubButton.styles,
+    ..._card.Card.styles,
     ..._code_block.CodeBlock.styles,
+    ..._custom_image.CustomImage.styles,
+    ..._enhanced_theme_toggle.EnhancedThemeToggleState.styles,
+    ..._steps.Steps.styles,
+    ..._tip.Tip.styles,
+    ..._tab_bar.TabBar.styles,
     ..._zoomable_image.ZoomableImage.styles,
     ..._callout.Callout.styles,
-    ..._github_button.GitHubButton.styles,
-    ..._image.Image.styles,
-    ..._theme_toggle.ThemeToggleState.styles,
+    ..._tabs.Tabs.styles,
   ],
 );
 
+Map<String, Object?> __cached_github_buttonCachedGitHubButton(
+  _cached_github_button.CachedGitHubButton c,
+) => {'repo': c.repo, 'cacheDurationMinutes': c.cacheDurationMinutes};
+Map<String, Object?> __tab_barTabBar(_tab_bar.TabBar c) => {
+  'initialValue': c.initialValue,
+  'items': c.items,
+};
 Map<String, Object?> __zoomable_imageZoomableImage(
   _zoomable_image.ZoomableImage c,
 ) => {'src': c.src, 'alt': c.alt, 'caption': c.caption};
-Map<String, Object?> __github_buttonGitHubButton(
-  _github_button.GitHubButton c,
-) => {'repo': c.repo};

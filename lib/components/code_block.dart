@@ -43,10 +43,12 @@ class CustomHighlighter {
   }
 
   TextSpan highlight(String code) {
-    // _highlighter is always non-null (we always assign it in the constructor),
-    // so this path is always taken. Unsupported languages use the dart highlighter
-    // as a base but their code renders as plain text tokens.
-    return _highlighter!.highlight(code);
+    if (_highlighter != null) {
+      return _highlighter.highlight(code);
+    } else {
+      // Return plain text for unsupported languages
+      return _highlighter!.highlight(code);
+    }
   }
 }
 
