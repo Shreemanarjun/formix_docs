@@ -3,9 +3,7 @@ title: "Getting Started with Formix"
 description: "Learn how to install Formix, configure Riverpod, and build your first reactive Flutter form in minutes."
 ---
 
-# Getting Started
 
-Get Formix up and running in your Flutter project in under 5 minutes.
 
 ## Prerequisites
 

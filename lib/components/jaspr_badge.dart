@@ -69,8 +69,8 @@ class BuiltWithJasprBadge extends StatelessComponent {
     return div(
       styles: Styles(
         display: Display.flex,
-        justifyContent: JustifyContent.center,
         padding: Padding.symmetric(vertical: 2.rem),
+        justifyContent: JustifyContent.center,
       ),
       [
         svg(

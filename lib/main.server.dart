@@ -47,6 +47,7 @@ void main() {
       // Enables mustache templating inside the markdown files.
       templateEngine: MustacheTemplateEngine(),
       debugPrint: true,
+      eagerlyLoadAllPages: true,
       parsers: [
         MarkdownParser(),
         HtmlParser(),
