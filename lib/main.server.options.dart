@@ -71,7 +71,7 @@ ServerOptions get defaultServerOptions => ServerOptions(
         ),
   },
   styles: () => [
-    ..._badge.Badge.styles,
+    ..._badge.FormixBadge.styles,
     ..._cached_github_button.CachedGitHubButton.styles,
     ..._card.Card.styles,
     ..._code_block.CodeBlock.styles,

@@ -17,49 +17,6 @@ Build type-safe, ultra-reactive forms with Riverpod. Lightning-fast performance,
 
 ---
 
-## Quick Look
-
-```dart
-// 1. Declare type-safe field IDs (put these in a file near your form)
-const emailField    = FormixFieldID<String>('email');
-const passwordField = FormixFieldID<String>('password');
-
-// 2. Wrap your page with Formix
-Formix(
-  fields: [
-    FormixFieldConfig(
-      id: emailField,
-      validator: FormixValidators.string().required().email().build(),
-    ),
-    FormixFieldConfig(
-      id: passwordField,
-      validator: FormixValidators.string().required().minLength(8).build(),
-    ),
-  ],
-  child: Column(
-    children: [
-      // 3. Place built-in field widgets
-      FormixTextFormField(fieldId: emailField),
-      FormixTextFormField(fieldId: passwordField, obscureText: true),
-
-      // 4. Submit
-      ElevatedButton(
-        onPressed: () => Formix.controllerOf(context)?.submit(
-          onValid: (values) async {
-            final email    = values[emailField.key] as String;
-            final password = values[passwordField.key] as String;
-            await authService.login(email: email, password: password);
-          },
-        ),
-        child: const Text('Login'),
-      ),
-    ],
-  ),
-)
-```
-
----
-
 ## Installation
 
 Add Formix to your `pubspec.yaml`:
@@ -94,3 +51,5 @@ void main() {
 - **[Custom Fields](/concepts/custom-fields)** — Use `FormixRawFormField` to wrap any widget.
 - **[API Reference](/api/controller)** — Full API reference for every class and method.
 - **[Examples](/examples/login-form)** — Real-world code examples you can copy and adapt.
+
+

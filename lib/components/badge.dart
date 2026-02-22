@@ -10,8 +10,8 @@ import 'package:jaspr_content/jaspr_content.dart';
 /// <Badge variant="warning">Beta</Badge>
 /// <Badge variant="error">Deprecated</Badge>
 /// ```
-class Badge extends CustomComponentBase {
-  Badge();
+class FormixBadge extends CustomComponentBase {
+  FormixBadge();
 
   @override
   final Pattern pattern = 'Badge';
@@ -94,7 +94,7 @@ class _BadgeComponent extends StatelessComponent {
 
   @override
   Component build(BuildContext context) {
-    return span(classes: 'badge badge-$variant', [
+    return span(classes: 'formix-badge badge badge-$variant', [
       if (child != null) child!,
     ]);
   }

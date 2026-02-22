@@ -26,6 +26,7 @@ import 'components/cached_github_button.dart';
 import 'components/hero.dart';
 import 'components/feature_grid.dart';
 import 'components/home_layout.dart';
+import 'components/jaspr_badge.dart';
 import 'page_extensions.dart';
 
 // This file is generated automatically by Jaspr, do not remove or edit.
@@ -79,7 +80,7 @@ void main() {
         // Card component for highlighting content
         Card(),
         // Badge component for status indicators
-        Badge(),
+        FormixBadge(),
         // Custom tip component for helpful information
         Tip(),
         // Adds zooming and caption support to images.
@@ -89,6 +90,7 @@ void main() {
         // Visual Nitro-inspired UI components
         Hero(),
         FeatureGrid(),
+        JasprBadgeMarkdown(),
       ],
       layouts: [
         // Enhanced responsive layout for documentation sites. (Default layout)
@@ -171,58 +173,45 @@ Component _buildHeader() {
 Component _buildFooter() {
   return Builder(
     builder: (context) {
-      return div(
-        styles: Styles(
-          position: Position.fixed(bottom: 0.px, right: 24.px),
-          padding: Spacing.only(bottom: 24.px),
-          backgroundColor: Color('hsl(var(--background))'),
-          raw: {
-            'transition': 'all 0.3s ease-in-out',
-            'z-index': '999',
-          },
-        ),
+      return footer(
+        classes: 'w-full py-12 border-t border-slate-200/60 dark:border-slate-800/60 mt-20',
         [
-          div(
-            styles: Styles(
-              display: Display.flex,
-              flexDirection: FlexDirection.column,
-              alignItems: AlignItems.end,
-              gap: Gap(row: 8.px),
-            ),
-            [
-              div(
-                styles: Styles(
-                  display: Display.flex,
-                  padding: Spacing.symmetric(horizontal: 8.px, vertical: 4.px),
-                  radius: BorderRadius.all(Radius.circular(12.px)),
-                  alignItems: AlignItems.center,
-                  gap: Gap(row: 6.px),
-                  backgroundColor: Color('hsl(var(--primary) / 0.1)'),
-                  raw: {'backdrop-filter': 'blur(4px)'},
+          div(classes: 'max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8', [
+            div(classes: 'flex flex-col md:flex-row items-center justify-between gap-6', [
+              // Left side: Version and Badge
+              div(classes: 'flex flex-col items-center md:items-start gap-4', [
+                div(
+                  classes:
+                      'inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-600 dark:text-purple-400 text-xs font-bold tracking-tight',
+                  [
+                    span([Component.text('v1.0.3')]),
+                    div(classes: 'w-1 h-1 rounded-full bg-purple-500', []),
+                    span([Component.text('Latest Release')]),
+                  ],
                 ),
-                [
-                  span(
-                    styles: Styles(
-                      color: Color('hsl(var(--primary))'),
-                      fontSize: 0.6875.rem,
-                      fontWeight: FontWeight.w600,
-                      letterSpacing: 0.025.em,
-                    ),
-                    [Component.text('v1.0.0')],
+                div(classes: 'flex items-center gap-2', [
+                  const BuiltWithJasprBadge.darkTwoTone(),
+                ]),
+              ]),
+
+              // Center/Right: Copyright and Credits
+              div(classes: 'flex flex-col items-center md:items-end gap-2 text-sm text-slate-500 dark:text-slate-400', [
+                p(classes: 'font-medium', [
+                  Component.text('© 2026 Shreeman Arjun Sahu. All rights reserved.'),
+                ]),
+                p(classes: 'flex items-center gap-1.5', [
+                  Component.text('Made with '),
+                  span(classes: 'text-red-500 animate-pulse', [Component.text('❤️')]),
+                  Component.text(' and '),
+                  a(
+                    href: 'https://jaspr.site',
+                    classes: 'text-slate-900 dark:text-white font-semibold hover:text-purple-600 transition-colors',
+                    [Component.text('Jaspr')],
                   ),
-                  div(
-                    styles: Styles(
-                      width: 6.px,
-                      height: 6.px,
-                      radius: BorderRadius.circular(50.percent),
-                      backgroundColor: Color('hsl(var(--primary))'),
-                    ),
-                    [],
-                  ),
-                ],
-              ),
-            ],
-          ),
+                ]),
+              ]),
+            ]),
+          ]),
         ],
       );
     },
