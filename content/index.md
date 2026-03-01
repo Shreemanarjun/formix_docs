@@ -43,35 +43,6 @@ void main() {
 
 ---
 
-<UpdaterOverlay width="375" height="812" title="Update Available" message="A new version is ready to use. Please refresh the page to update." actionLabel="Update" />
-
-<CodePreviewTabs>
-
-<PreviewTab>
-
-<ExampleApp width="400" height="300" />
-
-</PreviewTab>
-
-<CodeTab>
-
-```dart
-import 'package:flutter/material.dart';
-
-class ExampleApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}
-```
-
-</CodeTab>
-
-</CodePreviewTabs>
-
-
-
 ## What's Next?
 
 - **[Getting Started](/getting-started)** — Installation, `ProviderScope` setup, and your first form in 5 minutes.

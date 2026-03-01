@@ -14,7 +14,8 @@ dependencies:
   jaspr_lucide: ^0.16.1
   jaspr_router: ^0.8.1
   jaspr_riverpod: ^0.4.4
-  jaspr_flutter_embed: ^0.4.10
+  jaspr_flutter_embed:
+    path: local_packages/jaspr_flutter_embed
   syntax_highlight_lite: any
   universal_web: ^1.1.1+1
 
@@ -33,3 +34,4 @@ jaspr:
 
 flutter:
   uses-material-design: true
+

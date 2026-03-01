@@ -39,3 +39,37 @@ The example above should be visible and interactive. If you see the "Initializin
 <Info>
   This feature is extremely useful for demonstrating complex UI components or interactive playgounds without leaving the documentation.
 </Info>
+
+
+
+
+<CodePreviewTabs>
+
+<PreviewTab>
+
+<ExampleApp width="400" height="300" />
+
+</PreviewTab>
+
+<CodeTab>
+
+```dart
+import 'package:flutter/material.dart';
+
+class ExampleApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}
+```
+
+</CodeTab>
+
+</CodePreviewTabs>
+
+
+
+
+<UpdaterOverlay width="375" height="812" title="Update Available" message="A new version is ready to use. Please refresh the page to updates." actionLabel="Update" />
+

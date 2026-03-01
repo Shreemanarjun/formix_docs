@@ -382,10 +382,9 @@ packages:
   jaspr_flutter_embed:
     dependency: "direct main"
     description:
-      name: jaspr_flutter_embed
-      sha256: f659eb344ec2665a6d9cdf0199ca78b0396f62e94b2ee770c5f13e877e25f9bf
-      url: "https://pub.dev"
-    source: hosted
+      path: "local_packages/jaspr_flutter_embed"
+      relative: true
+    source: path
     version: "0.4.10"
   jaspr_lucide:
     dependency: "direct main"
