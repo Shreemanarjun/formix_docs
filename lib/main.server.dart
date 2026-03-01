@@ -28,8 +28,8 @@ import 'components/hero.dart';
 import 'components/feature_grid.dart';
 import 'components/home_layout.dart';
 import 'components/jaspr_badge.dart';
-import 'components/embedded_updater_overlay.dart';
-import 'components/example_app_embed.dart';
+import 'components/combined_embed.dart';
+import 'components/code_preview_tabs.dart';
 import 'page_extensions.dart';
 
 // This file is generated automatically by Jaspr, do not remove or edit.
@@ -98,6 +98,7 @@ void main() {
           JasprBadgeMarkdown(),
           EmbeddedUpdaterOverlayMarkdown(),
           ExampleAppEmbedMarkdown(),
+          CodePreviewTabsMarkdown(),
         ],
         layouts: [
           // Enhanced responsive layout for documentation sites. (Default layout)

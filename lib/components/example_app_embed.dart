@@ -36,6 +36,7 @@ class ExampleAppEmbed extends StatelessComponent {
       classes: 'flex justify-center my-8',
       [
         FlutterEmbedView.deferred(
+          id: 'flutter-embed-example-counter-$hashCode',
           constraints: ViewConstraints(
             minWidth: width,
             minHeight: height,

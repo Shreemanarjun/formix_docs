@@ -6,6 +6,8 @@
 
 // ignore_for_file: directives_ordering, non_constant_identifier_names
 
+dynamic CombinedFlutterApp;
+typedef CombinedFlutterAppOrStubbed = dynamic;
 dynamic ExampleCounter;
 typedef ExampleCounterOrStubbed = dynamic;
 dynamic FlutterUpdaterOverlay;

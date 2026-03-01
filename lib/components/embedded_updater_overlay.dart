@@ -61,6 +61,8 @@ class EmbeddedUpdaterOverlay extends StatelessComponent {
       ),
       [
         FlutterEmbedView.deferred(
+          key: ValueKey('flutter-embed-updater-overlay-$hashCode'),
+          id: 'flutter-embed-updater-overlay-$hashCode',
           classes: 'overlay-view',
           constraints: ViewConstraints(
             minWidth: width,

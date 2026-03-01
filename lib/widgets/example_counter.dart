@@ -12,43 +12,52 @@ class _ExampleCounterState extends State<ExampleCounter> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        backgroundColor: Colors.transparent,
-        body: Center(
-          child: Card(
-            elevation: 4,
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  const Text(
-                    'Flutter Embedded Counter',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+    return Directionality(
+      textDirection: TextDirection.ltr,
+      child: MediaQuery(
+        data: MediaQueryData.fromView(View.of(context)),
+        child: Theme(
+          data: ThemeData.light(),
+          child: DefaultTextStyle(
+            style: const TextStyle(color: Colors.black, fontSize: 14),
+            child: Scaffold(
+              backgroundColor: Colors.transparent,
+              body: Center(
+                child: Card(
+                  elevation: 4,
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const Text(
+                          'Flutter Embedded Counter',
+                          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                        ),
+                        const SizedBox(height: 16),
+                        Text(
+                          '$_counter',
+                          style: Theme.of(context).textTheme.headlineMedium,
+                        ),
+                        const SizedBox(height: 16),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            ElevatedButton(
+                              onPressed: () => setState(() => _counter--),
+                              child: const Icon(Icons.remove),
+                            ),
+                            const SizedBox(width: 16),
+                            ElevatedButton(
+                              onPressed: () => setState(() => _counter++),
+                              child: const Icon(Icons.add),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
-                  const SizedBox(height: 16),
-                  Text(
-                    '$_counter',
-                    style: Theme.of(context).textTheme.headlineMedium,
-                  ),
-                  const SizedBox(height: 16),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      ElevatedButton(
-                        onPressed: () => setState(() => _counter--),
-                        child: const Icon(Icons.remove),
-                      ),
-                      const SizedBox(width: 16),
-                      ElevatedButton(
-                        onPressed: () => setState(() => _counter++),
-                        child: const Icon(Icons.add),
-                      ),
-                    ],
-                  ),
-                ],
+                ),
               ),
             ),
           ),

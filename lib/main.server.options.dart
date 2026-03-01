@@ -10,13 +10,10 @@ import 'package:formix_docs/components/cached_github_button.dart'
     as _cached_github_button;
 import 'package:formix_docs/components/card.dart' as _card;
 import 'package:formix_docs/components/code_block.dart' as _code_block;
+import 'package:formix_docs/components/combined_embed.dart' as _combined_embed;
 import 'package:formix_docs/components/custom_image.dart' as _custom_image;
-import 'package:formix_docs/components/embedded_updater_overlay.dart'
-    as _embedded_updater_overlay;
 import 'package:formix_docs/components/enhanced_theme_toggle.dart'
     as _enhanced_theme_toggle;
-import 'package:formix_docs/components/example_app_embed.dart'
-    as _example_app_embed;
 import 'package:formix_docs/components/steps.dart' as _steps;
 import 'package:formix_docs/components/tip.dart' as _tip;
 import 'package:jaspr_content/components/_internal/code_block_copy_button.dart'
@@ -53,19 +50,13 @@ ServerOptions get defaultServerOptions => ServerOptions(
           'cached_github_button',
           params: __cached_github_buttonCachedGitHubButton,
         ),
-    _embedded_updater_overlay.EmbeddedUpdaterOverlay:
-        ClientTarget<_embedded_updater_overlay.EmbeddedUpdaterOverlay>(
-          'embedded_updater_overlay',
-          params: __embedded_updater_overlayEmbeddedUpdaterOverlay,
-        ),
+    _combined_embed.CombinedEmbed: ClientTarget<_combined_embed.CombinedEmbed>(
+      'combined_embed',
+      params: __combined_embedCombinedEmbed,
+    ),
     _enhanced_theme_toggle.EnhancedThemeToggle:
         ClientTarget<_enhanced_theme_toggle.EnhancedThemeToggle>(
           'enhanced_theme_toggle',
-        ),
-    _example_app_embed.ExampleAppEmbed:
-        ClientTarget<_example_app_embed.ExampleAppEmbed>(
-          'example_app_embed',
-          params: __example_app_embedExampleAppEmbed,
         ),
     _code_block_copy_button.CodeBlockCopyButton:
         ClientTarget<_code_block_copy_button.CodeBlockCopyButton>(
@@ -89,8 +80,8 @@ ServerOptions get defaultServerOptions => ServerOptions(
     ..._cached_github_button.CachedGitHubButton.styles,
     ..._card.Card.styles,
     ..._code_block.CodeBlock.styles,
+    ..._combined_embed.CombinedEmbed.styles,
     ..._custom_image.CustomImage.styles,
-    ..._embedded_updater_overlay.EmbeddedUpdaterOverlay.styles,
     ..._enhanced_theme_toggle.EnhancedThemeToggleState.styles,
     ..._steps.Steps.styles,
     ..._tip.Tip.styles,
@@ -104,18 +95,16 @@ ServerOptions get defaultServerOptions => ServerOptions(
 Map<String, Object?> __cached_github_buttonCachedGitHubButton(
   _cached_github_button.CachedGitHubButton c,
 ) => {'repo': c.repo, 'cacheDurationMinutes': c.cacheDurationMinutes};
-Map<String, Object?> __embedded_updater_overlayEmbeddedUpdaterOverlay(
-  _embedded_updater_overlay.EmbeddedUpdaterOverlay c,
+Map<String, Object?> __combined_embedCombinedEmbed(
+  _combined_embed.CombinedEmbed c,
 ) => {
-  'title': c.title,
-  'message': c.message,
-  'actionLabel': c.actionLabel,
+  'widgetId': c.widgetId,
+  'overlayTitle': c.overlayTitle,
+  'overlayMessage': c.overlayMessage,
+  'overlayActionLabel': c.overlayActionLabel,
   'width': c.width,
   'height': c.height,
 };
-Map<String, Object?> __example_app_embedExampleAppEmbed(
-  _example_app_embed.ExampleAppEmbed c,
-) => {'width': c.width, 'height': c.height};
 Map<String, Object?> __tab_barTabBar(_tab_bar.TabBar c) => {
   'initialValue': c.initialValue,
   'items': c.items,
