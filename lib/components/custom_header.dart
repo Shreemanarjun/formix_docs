@@ -61,6 +61,7 @@ class CustomHeader extends StatelessComponent {
               ),
             ],
           ),
+          script(src: 'flutter_bootstrap.js', async: true),
           ThemeScript(),
         ],
       ),

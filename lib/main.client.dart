@@ -8,6 +8,7 @@ library;
 import 'package:jaspr/client.dart';
 
 // This file is generated automatically by Jaspr, do not remove or edit.
+import 'package:jaspr_riverpod/jaspr_riverpod.dart';
 import 'main.client.options.dart';
 
 void main() {
@@ -23,6 +24,8 @@ void main() {
   // You can wrap this with additional [InheritedComponent]s to share state across multiple
   // @client components if needed.
   runApp(
-    const ClientApp(),
+    ProviderScope(
+      child: ClientApp(),
+    ),
   );
 }

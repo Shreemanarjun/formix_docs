@@ -43,6 +43,16 @@ void main() {
 
 ---
 
+<UpdaterOverlay
+  title="Update Available"
+  message="A new version is ready."
+  actionLabel="Update"
+  width="375"
+  height="812"
+/>
+
+
+
 ## What's Next?
 
 - **[Getting Started](/getting-started)** — Installation, `ProviderScope` setup, and your first form in 5 minutes.

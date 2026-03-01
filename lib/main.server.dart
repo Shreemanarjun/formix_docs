@@ -11,6 +11,7 @@ import 'package:jaspr_content/components/sidebar.dart';
 import 'package:jaspr_content/components/tabs.dart';
 import 'package:jaspr_content/jaspr_content.dart';
 import 'package:jaspr_content/theme.dart';
+import 'package:jaspr_riverpod/jaspr_riverpod.dart';
 
 // Custom components from datum_docs adapted for formix_docs
 import 'components/code_block.dart';
@@ -27,6 +28,8 @@ import 'components/hero.dart';
 import 'components/feature_grid.dart';
 import 'components/home_layout.dart';
 import 'components/jaspr_badge.dart';
+import 'components/embedded_updater_overlay.dart';
+import 'components/example_app_embed.dart';
 import 'page_extensions.dart';
 
 // This file is generated automatically by Jaspr, do not remove or edit.
@@ -43,116 +46,121 @@ void main() {
   // [ContentApp] spins up the content rendering pipeline from jaspr_content to render
   // your markdown files in the content/ directory to a beautiful documentation site.
   runApp(
-    ContentApp(
-      // Enables mustache templating inside the markdown files.
-      templateEngine: MustacheTemplateEngine(),
-      debugPrint: true,
-      eagerlyLoadAllPages: true,
-      parsers: [
-        MarkdownParser(),
-        HtmlParser(),
-      ],
-      extensions: [
-        // Adds heading anchors to each heading.
-        HeadingAnchorsExtension(),
-        // Generates a table of contents for each page.
-        TableOfContentsExtension(),
-        // Estimates reading time based on word count.
-        ReadingTimeExtension(),
-        // Adds SEO enhancements like meta tags and structured data.
-        SEOEnhancementsExtension(),
-        // Adds last modified date based on file modification time.
-        LastModifiedExtension(),
-        // Generates breadcrumb navigation data.
-        BreadcrumbExtension(),
-        // Generates previous/next page navigation (basic implementation).
-        PageNavigationExtension(),
-      ],
-      components: [
-        // Callouts: <Info>, <Warning>, <Tip>, <Danger>
-        Callout(),
-        // Adds syntax highlighting to code blocks.
-        CodeBlock(
-          defaultLanguage: 'dart',
-          grammars: {},
-        ),
-        // Step-by-step instructions component
-        Steps(),
-        // Card component for highlighting content
-        Card(),
-        // Badge component for status indicators
-        FormixBadge(),
-        // Custom tip component for helpful information
-        Tip(),
-        // Adds zooming and caption support to images.
-        CustomImage(zoom: true),
-        // Adds support for tabbed content blocks.
-        Tabs(),
-        // Visual Nitro-inspired UI components
-        Hero(),
-        FeatureGrid(),
-        JasprBadgeMarkdown(),
-      ],
-      layouts: [
-        // Enhanced responsive layout for documentation sites. (Default layout)
-        ResponsiveDocsLayout(
-          header: _buildHeader(),
-          sidebar: Sidebar(
-            groups: [
-              SidebarGroup(
-                links: [
-                  SidebarLink(text: 'Introduction', href: '/'),
-                  SidebarLink(text: 'Getting Started', href: '/getting-started'),
-                ],
-              ),
-              SidebarGroup(
-                title: 'Concepts',
-                links: [
-                  SidebarLink(text: 'Overview', href: '/concepts/overview'),
-                  SidebarLink(text: 'Validation', href: '/concepts/validation'),
-                  SidebarLink(text: 'Custom Fields', href: '/concepts/custom-fields'),
-                  SidebarLink(text: 'Multi-Step Forms', href: '/concepts/multi-step'),
-                ],
-              ),
-              SidebarGroup(
-                title: 'API Reference',
-                links: [
-                  SidebarLink(text: 'FormixController', href: '/api/controller'),
-                  SidebarLink(text: 'FormixField', href: '/api/field'),
-                  SidebarLink(text: 'FormixFieldID', href: '/api/field-id'),
-                  SidebarLink(text: 'FormixData (State)', href: '/api/form-state'),
-                  SidebarLink(text: 'FormixValidators', href: '/api/validators'),
-                  SidebarLink(text: 'FormixRawFormField', href: '/api/raw-form-field'),
-                ],
-              ),
-              SidebarGroup(
-                title: 'Examples',
-                links: [
-                  SidebarLink(text: 'Login Form', href: '/examples/login-form'),
-                  SidebarLink(text: 'Registration Form', href: '/examples/registration-form'),
-                  SidebarLink(text: 'Dynamic Array', href: '/examples/dynamic-array'),
-                ],
-              ),
-            ],
+    ProviderScope(
+      child: ContentApp(
+        // Enables mustache templating inside the markdown files.
+        templateEngine: MustacheTemplateEngine(),
+        debugPrint: true,
+        eagerlyLoadAllPages: true,
+        parsers: [
+          MarkdownParser(),
+          HtmlParser(),
+        ],
+        extensions: [
+          // Adds heading anchors to each heading.
+          HeadingAnchorsExtension(),
+          // Generates a table of contents for each page.
+          TableOfContentsExtension(),
+          // Estimates reading time based on word count.
+          ReadingTimeExtension(),
+          // Adds SEO enhancements like meta tags and structured data.
+          SEOEnhancementsExtension(),
+          // Adds last modified date based on file modification time.
+          LastModifiedExtension(),
+          // Generates breadcrumb navigation data.
+          BreadcrumbExtension(),
+          // Generates previous/next page navigation (basic implementation).
+          PageNavigationExtension(),
+        ],
+        components: [
+          // Callouts: <Info>, <Warning>, <Tip>, <Danger>
+          Callout(),
+          // Adds syntax highlighting to code blocks.
+          CodeBlock(
+            defaultLanguage: 'dart',
+            grammars: {},
           ),
-          footer: _buildFooter(),
-        ),
-        // Home layout for the landing page without the docs sidebar.
-        HomeLayout(
-          header: _buildHeader(),
-          footer: _buildFooter(),
-        ),
-      ],
-      theme: ContentTheme(
-        // Formix brand: purple.
-        primary: ThemeColor(ThemeColors.purple.$600, dark: ThemeColors.purple.$400),
-        background: ThemeColor(ThemeColors.slate.$50, dark: ThemeColors.zinc.$950),
-        colors: [
-          ContentColors.quoteBorders.apply(ThemeColors.purple.$400),
-          ContentColors.preBg.apply(
-            ThemeColor(ThemeColors.slate.$800, dark: ThemeColors.slate.$800),
+          // Step-by-step instructions component
+          Steps(),
+          // Card component for highlighting content
+          Card(),
+          // Badge component for status indicators
+          FormixBadge(),
+          // Custom tip component for helpful information
+          Tip(),
+          // Adds zooming and caption support to images.
+          CustomImage(zoom: true),
+          // Adds support for tabbed content blocks.
+          Tabs(),
+          // Visual Nitro-inspired UI components
+          Hero(),
+          FeatureGrid(),
+          JasprBadgeMarkdown(),
+          EmbeddedUpdaterOverlayMarkdown(),
+          ExampleAppEmbedMarkdown(),
+        ],
+        layouts: [
+          // Enhanced responsive layout for documentation sites. (Default layout)
+          ResponsiveDocsLayout(
+            header: _buildHeader(),
+            sidebar: Sidebar(
+              groups: [
+                SidebarGroup(
+                  links: [
+                    SidebarLink(text: 'Introduction', href: '/'),
+                    SidebarLink(text: 'Getting Started', href: '/getting-started'),
+                  ],
+                ),
+                SidebarGroup(
+                  title: 'Concepts',
+                  links: [
+                    SidebarLink(text: 'Overview', href: '/concepts/overview'),
+                    SidebarLink(text: 'Validation', href: '/concepts/validation'),
+                    SidebarLink(text: 'Custom Fields', href: '/concepts/custom-fields'),
+                    SidebarLink(text: 'Multi-Step Forms', href: '/concepts/multi-step'),
+                  ],
+                ),
+                SidebarGroup(
+                  title: 'API Reference',
+                  links: [
+                    SidebarLink(text: 'FormixController', href: '/api/controller'),
+                    SidebarLink(text: 'FormixField', href: '/api/field'),
+                    SidebarLink(text: 'FormixFieldID', href: '/api/field-id'),
+                    SidebarLink(text: 'FormixData (State)', href: '/api/form-state'),
+                    SidebarLink(text: 'FormixValidators', href: '/api/validators'),
+                    SidebarLink(text: 'FormixRawFormField', href: '/api/raw-form-field'),
+                  ],
+                ),
+                SidebarGroup(
+                  title: 'Examples',
+                  links: [
+                    SidebarLink(text: 'Login Form', href: '/examples/login-form'),
+                    SidebarLink(text: 'Registration Form', href: '/examples/registration-form'),
+                    SidebarLink(text: 'Dynamic Array', href: '/examples/dynamic-array'),
+                    SidebarLink(text: 'Flutter Embedding', href: '/examples/flutter-embed'),
+                  ],
+                ),
+              ],
+            ),
+            footer: _buildFooter(),
+          ),
+          // Home layout for the landing page without the docs sidebar.
+          HomeLayout(
+            header: _buildHeader(),
+            footer: _buildFooter(),
           ),
         ],
+        theme: ContentTheme(
+          // Formix brand: purple.
+          primary: ThemeColor(ThemeColors.purple.$600, dark: ThemeColors.purple.$400),
+          background: ThemeColor(ThemeColors.slate.$50, dark: ThemeColors.zinc.$950),
+          colors: [
+            ContentColors.quoteBorders.apply(ThemeColors.purple.$400),
+            ContentColors.preBg.apply(
+              ThemeColor(ThemeColors.slate.$800, dark: ThemeColors.slate.$800),
+            ),
+          ],
+        ),
       ),
     ),
   );
