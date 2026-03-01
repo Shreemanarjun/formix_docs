@@ -1,0 +1,36 @@
+  0s jaspr_builder:codec_bundle on 113 inputs; $sdk|lib/$lib$
+  0s jaspr_builder:styles_bundle on 113 inputs; $sdk|lib/$lib$
+  0s jaspr_builder:clients_bundle on 113 inputs; $sdk|lib/$lib$
+  0s jaspr_builder:codec_module on 5949 inputs; collection|lib/algorithms.dart
+  0s jaspr_builder:codec_module on 5949 inputs: 1 skipped; collection|lib/collection.dart
+  0s jaspr_builder:styles_module on 5965 inputs; collection|lib/algorithms.dart
+  0s jaspr_builder:client_module on 5968 inputs; collection|lib/algorithms.dart
+  0s jaspr_tailwind:compiler on 1 input; web/styles.tw.css
+  0s jaspr_tailwind:compiler on 1 input: 1 skipped
+  0s jaspr_builder:codec_module on 5949 inputs: 5949 skipped
+  0s jaspr_builder:codec_bundle on 113 inputs: 113 skipped
+  0s jaspr_builder:sync_mixins_module on 28 inputs; lib/components/badge.dart
+  0s jaspr_builder:sync_mixins_module on 28 inputs: 28 skipped
+  0s jaspr_builder:styles_module on 5965 inputs: 5965 skipped
+  0s jaspr_builder:styles_bundle on 113 inputs: 113 skipped
+  0s jaspr_builder:imports_module on 56 inputs; lib/components/badge.dart
+  0s jaspr_builder:imports_module on 56 inputs: 56 skipped
+  0s jaspr_builder:stub on 1 input; lib/$lib$
+  0s jaspr_builder:stub on 1 input: 1 skipped
+  0s jaspr_builder:client_module on 5968 inputs: 5968 skipped
+  0s jaspr_builder:clients_bundle on 113 inputs: 113 skipped
+  0s jaspr_builder:server_options on 1 input; lib/main.server.dart
+  0s jaspr_builder:server_options on 1 input: 1 skipped
+  0s jaspr_builder:import_output on 56 inputs; lib/components/badge.imports.json
+  0s jaspr_builder:import_output on 56 inputs: 56 skipped
+  0s jaspr_builder:client_options on 1 input; lib/main.client.dart
+  0s jaspr_builder:client_options on 1 input: 1 skipped
+  0s jaspr_builder:client_entrypoint on 1 input; lib/main.client.dart
+  0s jaspr_builder:client_entrypoint on 1 input: 1 skipped
+  0s build_web_compilers:entrypoint_marker on 1 input; web/$web$
+  0s build_web_compilers:entrypoint_marker on 1 input: 1 skipped
+  0s build_web_compilers:entrypoint on 1 input; web/main.client.dart
+  0s build_web_compilers:entrypoint on 1 input: 1 skipped
+E jaspr_builder:client_module on lib/components/embedded_updater_overlay.dart:
+  @client components only support parameters of primitive serializable types or types that define @decoder and @encoder methods. Failing parameter: [{void Function()? onClose}] in EmbeddedUpdaterOverlay.new()
+  Failed to build with build_runner/jit in 6s; wrote 0 outputs.

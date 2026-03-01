@@ -43,13 +43,9 @@ void main() {
 
 ---
 
-<UpdaterOverlay
-  title="Update Available"
-  message="A new version is ready."
-  actionLabel="Update"
-  width="375"
-  height="812"
-/>
+<UpdaterOverlay width="375" height="812" title="Update Available" message="A new version is ready to use. Please refresh the page to update." actionLabel="Update" />
+
+
 
 
 

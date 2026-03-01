@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
-import '../models/updater_config.dart';
 
 class FlutterUpdaterOverlay extends StatelessWidget {
   const FlutterUpdaterOverlay({
-    required this.config,
+    required this.title,
+    required this.message,
+    required this.actionLabel,
     required this.onClose,
     required this.isDark,
     this.onAction,
     super.key,
   });
 
-  final UpdaterOverlayConfig config;
+  final String title;
+  final String message;
+  final String actionLabel;
   final VoidCallback onClose;
   final VoidCallback? onAction;
   final bool isDark;
@@ -31,7 +34,7 @@ class FlutterUpdaterOverlay extends StatelessWidget {
                 borderRadius: BorderRadius.circular(16),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.2),
+                    color: Colors.black.withValues(alpha: 0.2),
                     blurRadius: 10,
                     spreadRadius: 2,
                   ),
@@ -45,7 +48,7 @@ class FlutterUpdaterOverlay extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        config.title,
+                        title,
                         style: const TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
@@ -58,11 +61,11 @@ class FlutterUpdaterOverlay extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 16),
-                  Text(config.message),
+                  Text(message),
                   const SizedBox(height: 24),
                   ElevatedButton(
                     onPressed: onAction,
-                    child: Text(config.actionLabel),
+                    child: Text(actionLabel),
                   ),
                 ],
               ),
