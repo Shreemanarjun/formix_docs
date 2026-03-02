@@ -8,10 +8,12 @@ import 'package:jaspr/client.dart';
 
 import 'package:formix_docs/components/cached_github_button.dart'
     deferred as _cached_github_button;
-import 'package:formix_docs/components/combined_embed.dart'
-    deferred as _combined_embed;
+import 'package:formix_docs/components/embedded_updater_overlay.dart'
+    deferred as _embedded_updater_overlay;
 import 'package:formix_docs/components/enhanced_theme_toggle.dart'
     deferred as _enhanced_theme_toggle;
+import 'package:formix_docs/components/example_app_embed.dart'
+    deferred as _example_app_embed;
 import 'package:jaspr_content/components/_internal/code_block_copy_button.dart'
     deferred as _code_block_copy_button;
 import 'package:jaspr_content/components/_internal/tab_bar.dart'
@@ -46,20 +48,26 @@ ClientOptions get defaultClientOptions => ClientOptions(
       ),
       loader: _cached_github_button.loadLibrary,
     ),
-    'combined_embed': ClientLoader(
-      (p) => _combined_embed.CombinedEmbed(
-        widgetId: p['widgetId'] as String,
-        overlayTitle: p['overlayTitle'] as String?,
-        overlayMessage: p['overlayMessage'] as String?,
-        overlayActionLabel: p['overlayActionLabel'] as String?,
+    'embedded_updater_overlay': ClientLoader(
+      (p) => _embedded_updater_overlay.EmbeddedUpdaterOverlay(
+        title: p['title'] as String,
+        message: p['message'] as String,
+        actionLabel: p['actionLabel'] as String,
         width: p['width'] as double,
         height: p['height'] as double,
       ),
-      loader: _combined_embed.loadLibrary,
+      loader: _embedded_updater_overlay.loadLibrary,
     ),
     'enhanced_theme_toggle': ClientLoader(
       (p) => _enhanced_theme_toggle.EnhancedThemeToggle(),
       loader: _enhanced_theme_toggle.loadLibrary,
+    ),
+    'example_app_embed': ClientLoader(
+      (p) => _example_app_embed.ExampleAppEmbed(
+        width: p['width'] as double,
+        height: p['height'] as double,
+      ),
+      loader: _example_app_embed.loadLibrary,
     ),
     'jaspr_content:code_block_copy_button': ClientLoader(
       (p) => _code_block_copy_button.CodeBlockCopyButton(),

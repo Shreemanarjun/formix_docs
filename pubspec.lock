@@ -101,10 +101,10 @@ packages:
     dependency: "direct dev"
     description:
       name: build_web_compilers
-      sha256: "7975a0304abc80dfaaf9897047ae85d78753ec6b8b97ad113d428464dd17145e"
+      sha256: "3ef2359bbb453d4f8965e2fb08e19b725768500a47b61d1db30140f61a91fbe9"
       url: "https://pub.dev"
     source: hosted
-    version: "4.4.13"
+    version: "4.4.14"
   built_collection:
     dependency: transitive
     description:

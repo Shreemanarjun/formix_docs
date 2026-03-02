@@ -4,6 +4,8 @@
 // To run code on the client, use the @client annotation.
 
 // Server-specific jaspr import.
+import 'package:formix_docs/components/embedded_updater_overlay.dart';
+import 'package:formix_docs/components/example_app_embed.dart';
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/server.dart';
 import 'package:jaspr_content/components/callout.dart';
@@ -28,7 +30,6 @@ import 'components/hero.dart';
 import 'components/feature_grid.dart';
 import 'components/home_layout.dart';
 import 'components/jaspr_badge.dart';
-import 'components/combined_embed.dart';
 import 'components/code_preview_tabs.dart';
 import 'page_extensions.dart';
 
