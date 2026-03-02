@@ -14,8 +14,9 @@
 include: package:lints/recommended.yaml
 
 analyzer:
-#   exclude:
-#     - path/to/excluded/files/**
+  exclude:
+    - '**/.pub-cache/**'
+    - '**/.puro/**'
 
 # Jaspr has a custom analyzer plugin 'jaspr_lints', which is enabled here.
 #
