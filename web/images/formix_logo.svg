@@ -1,20 +1,14 @@
-<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#7C3AED;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#A855F7;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#5B21B6;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#7C3AED;stop-opacity:1" />
-    </linearGradient>
-  </defs>
-  <!-- Background rounded square -->
-  <rect width="48" height="48" rx="12" fill="url(#grad1)"/>
-  <!-- F letter form icon -->
-  <rect x="12" y="12" width="4" height="24" rx="2" fill="white"/>
-  <rect x="12" y="12" width="20" height="4" rx="2" fill="white"/>
-  <rect x="12" y="22" width="16" height="4" rx="2" fill="white" opacity="0.85"/>
-  <!-- Lightning bolt accent -->
-  <path d="M32 14 L27 24 L31 24 L26 34 L36 21 L31 21 Z" fill="white" opacity="0.9"/>
+<svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="2" y="2" width="52" height="13.5304" rx="6.76522" fill="white" stroke="#1DCE3E" stroke-width="4"/>
+<rect x="1.5" y="20.4913" width="53" height="13.0696" rx="6.53478" fill="white" stroke="#1DCE3E" stroke-width="3"/>
+<rect y="29.7043" width="56" height="26.2957" fill="#1DCE3E"/>
+<rect x="0.5" y="30.2043" width="55" height="25.2957" stroke="#1DCE3E" stroke-opacity="0.8"/>
+<g clip-path="url(#clip0_2_13)">
+<path d="M35.8596 34.5739L25.0526 45.287L20.1403 40.4174" stroke="white" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_2_13">
+<rect width="23.5789" height="23.3739" fill="white" transform="translate(16.2105 28.7304)"/>
+</clipPath>
+</defs>
 </svg>
