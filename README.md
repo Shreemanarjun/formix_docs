@@ -1,15 +1,20 @@
-# formix_docs
+<p align="center">
+  <img src="https://zmozkivkhopoeutpnnum.supabase.co/storage/v1/object/public/images/formix_banner.svg" alt="Formix Logo" />
+</p>
 
-A documentation site built with Jaspr
+# Formix
 
-## Running the project
+**An elite, type-safe, and ultra-reactive form engine for Flutter.**
 
-Run your project using `jaspr serve`.
+Powered by **Riverpod**, Formix delivers lightning-fast performance, zero boilerplate, and effortless state management. Whether it's a simple login screen or a complex multi-step wizard, Formix scales with you.
 
-The development server will be available on `http://localhost:8080`.
 
-## Building the project
 
-Build your project using `jaspr build`.
+<p align="center">
+<a href="https://pub.dev/packages/formix"><img src="https://img.shields.io/pub/v/formix.svg" alt="Pub"></a>
+<a href="https://github.com/Shreemanarjun/formix/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"></a>
+<img src="https://img.shields.io/badge/coverage-93%25-brightgreen" alt="Code Coverage">
+<img src="https://img.shields.io/badge/tests-passed-brightgreen" alt="Tests">
+</p>
 
-The output will be located inside the `build/jaspr/` directory.
+---
