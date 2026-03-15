@@ -4,7 +4,7 @@ description: "Formix is a type-safe, ultra-reactive form engine for Flutter, pow
 layout: home
 ---
 
-<Hero title="Elite Form Engine" subtitle="for Flutter" command="flutter pub add formix">
+<Hero title="Elite Form Engine" subtitle="for Flutter" command="flutter pub add formix" image="/images/formix_logo.svg">
 Build type-safe, ultra-reactive forms with Riverpod. Lightning-fast performance, zero boilerplate, effortless state management.
 </Hero>
 

@@ -80,11 +80,12 @@ class CustomHeader extends StatelessComponent {
                   leading,
                 ),
 
-              a(classes: 'flex items-center gap-3 transition-opacity hover:opacity-80 no-underline', href: '/', [
+              a(classes: 'group flex items-center gap-3 transition-opacity hover:opacity-80 no-underline', href: '/', [
                 img(
                   src: logo,
                   alt: '$title Logo',
-                  classes: 'h-6 sm:h-6 w-auto object-contain',
+                  classes:
+                      'h-10 w-auto object-contain drop-shadow-sm transition-transform scale-[0.7] group-hover:scale-[0.8]',
                 ),
                 div(classes: 'flex flex-col justify-center', [
                   div(classes: 'flex items-center gap-2', [

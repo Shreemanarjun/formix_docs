@@ -21,6 +21,7 @@ class Hero extends CustomComponentBase {
     return _HeroComponent(
       title: attributes['title'] ?? 'Elite Form Engine',
       subtitle: attributes['subtitle'] ?? 'for Flutter',
+      image: attributes['image'],
       command: attributes['command'],
       child: child,
     );
@@ -31,12 +32,14 @@ class _HeroComponent extends StatelessComponent {
   const _HeroComponent({
     required this.title,
     required this.subtitle,
+    this.image,
     this.command,
     this.child,
   });
 
   final String title;
   final String subtitle;
+  final String? image;
   final String? command;
   final Component? child;
 
@@ -49,6 +52,13 @@ class _HeroComponent extends StatelessComponent {
             'absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90vw] h-[90vw] max-w-[1000px] max-h-[1000px] bg-purple-500/20 rounded-full blur-[80px] -z-10 pointer-events-none',
         [],
       ),
+
+      if (image != null)
+        img(
+          src: image!,
+          classes: 'w-24 h-24 mb-10 drop-shadow-2xl animate-float',
+          attributes: {'alt': 'Formix Logo'},
+        ),
 
       div(
         classes:
